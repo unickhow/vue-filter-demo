@@ -1,18 +1,32 @@
 <template lang="pug">
-  main
-    h1 BIKE
-    .spot(v-for='bike in bikeData')
-      p {{bike.sna}}
+  main.index
+    .container
+      filter-pannel
+      .bikes_container
+        bike-brief(
+          v-for='bike in bikeData', 
+          :key='bike.sno',
+          :bike='bike')
 </template>
 
 <script>
+import FilterPannel from './FilterPannel'
+import BikeBrief from './BikeBrief'
+
 export default {
   name: 'index',
-  props:['bikeData'],
+  components: {
+    FilterPannel, BikeBrief
+  },
   data () {
     return {
     }
-  }
+  },
+  computed: {
+    bikeData() {
+      return this.$store.state.bikeData 
+    }
+  },
 }
 </script>
 

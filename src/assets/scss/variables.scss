@@ -1,0 +1,19 @@
+$grey: #c8c8c8;
+$darkgrey: #757575;
+$blue: #4a90e2;
+$deepblue: #35485d;
+$green: #4fc08d;
+$darkgreen: #358862;
+$white: #f2f2f2;
+$purewhite: #fff;
+$milkyellow: #ffebb7;
+$red: #df0054;
+
+$navHeight: 60px;
+
+
+@mixin flex($alignItem: center, $justifyContent: center) {
+  display: flex;
+  align-items: $alignItem;
+  justify-content: $justifyContent;
+}

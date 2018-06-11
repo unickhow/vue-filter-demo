@@ -1,69 +1,29 @@
 <template lang="pug">
   #app
-    router-view(:bikeData='bikeData')
+    app-nav
+    p(v-if='$store.state.isLoading') LOADING ...
+    router-view(v-else)
 </template>
 
 <script>
 import axios from 'axios'
+import AppNav from './components/AppNav'
 
 export default {
   name: 'app',
-  data() {
-    return {
-      bikeData: ''
-    }
-  },
-  methods: {
-    getApi() {
-      axios.get('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.gz')
-        .then(res => {
-          this.bikeData = res.data.retVal
-          console.log('update !')
-        })
-    }
+  components: {
+    AppNav
   },
   mounted() {
-    this.getApi()
+    this.$store.dispatch('getApi')
     setInterval(() => {
-      this.getApi()
+      this.$store.dispatch('getApi')
+      console.log('update !')
     }, 60000)
   }
 }
 </script>
 
-<style>
-body {
-  margin: 0;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-main {
-  text-align: center;
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
-}
+<style lang="scss">
+@import '../src/assets/scss/app.scss';
 </style>
