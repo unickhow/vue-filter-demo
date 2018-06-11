@@ -1,18 +1,33 @@
-<template>
-  <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
-    </main>
-  </div>
+<template lang="pug">
+  #app
+    router-view(:bikeData='bikeData')
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      bikeData: ''
+    }
+  },
+  methods: {
+    getApi() {
+      axios.get('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.gz')
+        .then(res => {
+          this.bikeData = res.data.retVal
+          console.log('update !')
+        })
+    }
+  },
+  mounted() {
+    this.getApi()
+    setInterval(() => {
+      this.getApi()
+    }, 60000)
+  }
 }
 </script>
 
