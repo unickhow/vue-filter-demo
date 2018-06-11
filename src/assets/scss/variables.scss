@@ -1,4 +1,4 @@
-$grey: #c8c8c8;
+$grey: #e7e7e7;
 $darkgrey: #757575;
 $blue: #4a90e2;
 $deepblue: #35485d;
@@ -7,10 +7,9 @@ $darkgreen: #358862;
 $white: #f2f2f2;
 $purewhite: #fff;
 $milkyellow: #ffebb7;
+$dust: #f1c550;
+$orange: #ff7100;
 $red: #df0054;
-
-$navHeight: 60px;
-
 
 @mixin flex($alignItem: center, $justifyContent: center) {
   display: flex;

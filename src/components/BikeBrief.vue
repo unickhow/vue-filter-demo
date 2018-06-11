@@ -1,13 +1,22 @@
 <template lang="pug">
-	article.bike_brief
-		p {{bike.sna}} 
-			small {{bike.snaen}}
-		p {{bike.sarea}} 
-			small {{bike.sareaen}}
-		p {{bike.ar}} 
-			small {{bike.aren}}
-		p 可租借數：{{bike.sbi}}
-		p 可歸還數：{{bike.bemp}}
+	.column.is-6-desktop
+		article.bike_brief(:class='{disabled: bike.act === "0"}')
+			.text_group
+				h2 {{bike.sna}} 
+				small {{bike.snaen}}
+			.text_group.area_tag
+				p {{bike.sarea}} 
+					small {{bike.sareaen}}
+			.text_group
+				p {{bike.ar}} 
+				small {{bike.aren}}
+			.brief_footer
+				.available_count
+					label 可租借數 Left
+					span {{bike.sbi}}
+				.empty_count
+					label 可歸還數 Vacancy
+					span {{bike.bemp}}
 </template>
 
 <script>

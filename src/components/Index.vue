@@ -3,10 +3,11 @@
     .container
       filter-pannel
       .bikes_container
-        bike-brief(
-          v-for='bike in bikeData', 
-          :key='bike.sno',
-          :bike='bike')
+        .columns.is-multiline
+          bike-brief(
+            v-for='bike in bikeData', 
+            :key='bike.sno',
+            :bike='bike')
 </template>
 
 <script>

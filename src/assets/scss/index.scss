@@ -1,5 +1,12 @@
 main.index{
+	margin-top: 60px;
 	.container{
 		@include flex(flex-start);
+		padding: 10px;
+		.bikes_container{
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+		}
 	}
 }
