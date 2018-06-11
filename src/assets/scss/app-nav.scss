@@ -1,0 +1,15 @@
+nav#navbar{
+	height: 60px;
+	background: $green;
+	padding: 0 10px;
+	.container{
+		height: 100%;
+		@include flex(center, space-between);
+		h1{
+			font-size: 2rem;
+			font-weight: bold;
+			color: $white;
+			letter-spacing: .1rem;
+		}
+	}
+}
