@@ -1,6 +1,6 @@
 article.bike_brief{
-	border: 1px solid $deepblue;
-	background: $white;
+	// border: 1px solid $deepblue;
+	background: $purewhite;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -47,7 +47,7 @@ article.bike_brief{
 	.brief_footer{
 		padding: 10px;
 		margin-top: auto;
-		border-top: 1px solid #000;
+		border-top: 1px solid $grey;
 		display: flex;
 		.available_count, .empty_count{
 			width: 50%;

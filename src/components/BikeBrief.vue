@@ -1,5 +1,5 @@
 <template lang="pug">
-	.column.is-6-desktop
+	.column.is-6-desktop.is-6-tablet
 		article.bike_brief(:class='{disabled: bike.act === "0"}')
 			.text_group
 				h2 {{bike.sna}} 
