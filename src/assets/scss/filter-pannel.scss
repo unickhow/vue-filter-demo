@@ -6,4 +6,35 @@ aside.filter_pannel{
 	left: 0;
 	margin-right: 10px;
 	background: $purewhite;
+	padding: 10px;
+	h6{
+		font-size: 1rem;
+		color: $darkgreen;
+		padding: 10px 0;
+	}
+	li{
+		user-select: none;
+		cursor: pointer;
+		padding: 5px 0;
+		display: flex;
+		align-items: center;
+		i{
+			color: $green;
+			margin-right: 10px;
+			transition: .65s;
+			border-radius: 50%;
+			font-size: 1rem;
+			&.fa-check-circle{
+				background: $green;
+				color: $white;
+			}
+		}
+		label{
+			cursor: pointer;
+			line-height: 0;
+			input{
+				display: none;
+			}
+		}
+	}
 }
