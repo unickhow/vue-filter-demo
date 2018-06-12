@@ -5,6 +5,18 @@ aside.filter_pannel{
 	top: calc(1.5rem + 60px);
 	left: 0;
 	margin: 0.75rem;
+	@media (max-width: $md) {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		background: $purewhite;
+		margin: 0;
+		height: 100%;
+		width: 300px;
+		box-shadow: 0 0 10px rgba($darkgrey, .7);
+		overflow: scroll;
+	}
 	.filter_container{
 		background: $purewhite;
 		padding: 10px;

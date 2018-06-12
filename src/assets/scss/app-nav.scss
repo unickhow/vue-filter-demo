@@ -16,5 +16,23 @@ nav#navbar{
 			color: $white;
 			letter-spacing: .1rem;
 		}
+		.search_input{
+			position: relative;
+			input{
+				outline: none;
+				padding: 3px;
+				height: 25px;
+				width: 200px;
+				background: rgba($grey, .5);
+				border: none;
+				border-bottom: 1px solid rgba($white, .5);
+			}
+			i{
+				position: absolute;
+				right: 8px;
+				top: 5px;
+				color: $white;
+			}
+		}
 	}
 }

@@ -11,13 +11,13 @@ export const store = new Vuex.Store({
 		isLoading: true,
 		areaList: [
 			{
-				isSelected: true,
+				isSelected: false,
 				name_en:"Xinyi Dist.",
 				name_zh:"信義區",
 				contentLength: 0
 			},
 			{
-				isSelected: true,
+				isSelected: false,
 				name_en:"Daan Dist.",
 				name_zh:"大安區",
 				contentLength: 0

@@ -3,14 +3,14 @@
 		.container
 			h1 vFilter
 			.search_input
+				input(
+					type='text', 
+					v-model='updateKeyword',
+					ref='searchInput',
+					@compositionstart='composition($event)',
+					@compositionupdate='composition($event)',
+					@compositionend='composition($event)')
 				i.fas.fa-search
-					input#searchInput(
-						type='text', 
-						v-model='updateKeyword',
-						ref='searchInput',
-						@compositionstart='composition($event)',
-						@compositionupdate='composition($event)',
-						@compositionend='composition($event)')
 </template>
 
 <script>
