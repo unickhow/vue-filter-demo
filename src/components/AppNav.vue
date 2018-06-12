@@ -3,6 +3,44 @@
 		.container
 			h1 vFilter
 			.search_input
-			i.fas.fa-search
-				input(type='text')
+				i.fas.fa-search
+					input#searchInput(
+						type='text', 
+						v-model='updateKeyword',
+						ref='searchInput',
+						@compositionstart='composition($event)',
+						@compositionupdate='composition($event)',
+						@compositionend='composition($event)')
 </template>
+
+<script>
+	export default {
+		computed: {
+			updateKeyword: {
+				get() {
+					return this.$store.state.searchKeyword
+				},
+				set(newInput) {
+					this.$store.commit('updateKeyword', newInput)
+				}
+			}
+		},
+		methods: {
+			composition(e) {
+				this.$store.commit('updateKeyword', e.data)
+			}
+		},
+		mounted() {
+			const input = this.$refs.searchInput
+			// input.addEventListener('compositionstart', e => {
+			// 	console.log(`start: ${e.data}`)
+			// })
+			// input.addEventListener('compositionupdate', e => {
+			// 	console.log(`update: ${e.data}`)
+			// })
+			// input.addEventListener('compositionend', e => {
+			// 	console.log(`end: ${e.data}`)
+			// })
+		}
+	}
+</script>
