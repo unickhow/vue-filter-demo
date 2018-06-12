@@ -83,7 +83,11 @@ export const store = new Vuex.Store({
 				name_zh:"北投區",
 				contentLength: 0
 			}
-		]
+		],
+		pageStart: 1,
+		currentPage: 1,
+		pageSize: 10,
+		totalPage: 0
 	},
 	getters: {
 		selectedTags: state => {
@@ -108,11 +112,20 @@ export const store = new Vuex.Store({
 
 			// checkbox filters
 			finalData = store.getters.selectedTags.length === 0 ? finalData : finalData.filter(bike => store.getters.selectedTags.some(tag => tag.name_zh === bike.sarea))
+			state.totalPage = Math.ceil(finalData.length / state.pageSize)
 
-			return finalData
+			// pagination
+			let start = (state.currentPage - 1) * state.pageSize
+			let end = start + state.pageSize
+
+			return finalData.slice(start, end)
 		}
 	},
 	mutations: {
+		changePage(state, to) {
+			state.currentPage = to
+			store.commit('scrollToTop')
+		},
 		mobileToggleFilter(state) {
 			state.isMobileFilterOpen = !state.isMobileFilterOpen
 		},
@@ -122,28 +135,31 @@ export const store = new Vuex.Store({
 		storeApiData(state, apiData) {
 			state.bikeData = apiData.sort((a, b) => a.sarea - b.sarea)
 			state.isLoading = false
-
-			// find repeat object{} in array
-			// apiData = apiData.filter((bike, index, self) =>
-			// 	index === self.findIndex((t) => (
-			// 		t.sarea === bike.sarea && t.sareaen === bike.sareaen
-			// 	))
-			// )
-
-			// let areaArray = apiData.map(bike => {
-			// 	return {
-			// 		name_zh: bike.sarea,
-			// 		name_en: bike.sareaen,
-			// 		isSelected: false
-			// 	}
-			// })
-			// state.areaList = [...new Set(areaArray)]
 		},
 		toggleAreaTag(state, area) {
 			area.isSelected = !area.isSelected
+			state.currentPage = 1
+			store.commit('scrollToTop')
 		},
 		cancelTag(state, tag) {
 			tag.isSelected = false
+			state.currentPage = 1
+			store.commit('scrollToTop')
+		},
+		scrollToTop() {
+			const scrollHeight = window.scrollY
+      const scrollStep = Math.PI / ( 500 / 15 )
+			const cosParameter = scrollHeight / 2
+			let scrollCount = 0
+      let scrollMargin
+			const scrollInterval = setInterval( function() {
+					if ( window.scrollY != 0 ) {
+							scrollCount = scrollCount + 1
+							scrollMargin = cosParameter - cosParameter * Math.cos( scrollCount * scrollStep )
+							window.scrollTo( 0, ( scrollHeight - scrollMargin ) )
+					} 
+					else clearInterval(scrollInterval)
+			}, 15 )
 		}
 	},
 	actions: {

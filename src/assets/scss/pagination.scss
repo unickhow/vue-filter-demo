@@ -1,0 +1,25 @@
+#pagination{
+	width: 100%;
+	text-align: center;
+	li{
+		width: 25px;
+		height: 25px;
+		margin-bottom: 5px;
+		background: $white;
+		border: 1px solid $darkgrey;
+		border-radius: 3px;
+		a{
+			display: block;
+			height: 100%;
+			line-height: 25px;
+			color: $darkgrey;
+			font-weight: bold;
+		}
+		&.active{
+			background: $darkgreen;
+			a{
+				color: $white;
+			}
+		}
+	}
+}

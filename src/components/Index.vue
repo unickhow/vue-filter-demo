@@ -8,21 +8,23 @@
       filter-pannel
       .bikes_container
         p.empty_text(v-if='filteredData.length === 0') 嘿～沒有腳踏車想讓你騎喔！
-        .columns.is-multiline(v-else)
+        .columns.is-multiline(v-if='filteredData.length !== 0')
           bike-brief(
             v-for='bike in filteredData', 
             :key='bike.sno',
             :bike='bike')
+        pagination(v-if='filteredData.length !== 0')
 </template>
 
 <script>
 import FilterPannel from './FilterPannel'
 import BikeBrief from './BikeBrief'
+import Pagination from './Pagination'
 
 export default {
   name: 'index',
   components: {
-    FilterPannel, BikeBrief
+    FilterPannel, BikeBrief, Pagination
   },
   data () {
     return {
