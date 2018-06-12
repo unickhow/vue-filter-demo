@@ -7,7 +7,8 @@
         i.fas(:class='$store.state.isMobileFilterOpen ? "fa-times" : "fa-filter"')
       filter-pannel
       .bikes_container
-        .columns.is-multiline
+        p.empty_text(v-if='filteredData.length === 0') 嘿～沒有腳踏車想讓你騎喔！
+        .columns.is-multiline(v-else)
           bike-brief(
             v-for='bike in filteredData', 
             :key='bike.sno',
