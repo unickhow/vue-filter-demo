@@ -1,13 +1,15 @@
 #pagination{
 	width: 100%;
 	text-align: center;
+	padding: 10px 0;
 	li{
 		width: 25px;
 		height: 25px;
-		margin-bottom: 5px;
 		background: $white;
 		border: 1px solid $darkgrey;
 		border-radius: 3px;
+		margin: 0 5px;
+		margin-bottom: 5px;
 		a{
 			display: block;
 			height: 100%;
