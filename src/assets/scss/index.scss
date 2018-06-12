@@ -1,12 +1,19 @@
 main.index{
 	margin-top: 60px;
+	padding-top: .75rem;
 	.container{
 		@include flex(flex-start);
-		padding: 10px;
+		@media (max-width: $md) {
+		}
 		.bikes_container{
-			width: 100%;
+			// width: 100%;
 			display: flex;
+			flex: 1;
 			flex-wrap: wrap;
+			.columns{
+				margin: 0;
+				width: 100%;
+			}
 		}
 	}
 }

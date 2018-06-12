@@ -25,6 +25,12 @@ article.bike_brief{
 			background: rgba(black, .7);
 		}
 	}
+	.column{
+		padding: 10px;
+		@media (max-width: $md) {
+			padding: 5px;
+		}
+	}
 	.text_group{
 		padding: 10px;
 		h2{
@@ -42,6 +48,10 @@ article.bike_brief{
 				font-size: 0.7rem;
 				border-radius: 5px;
 			}
+		}
+		span.match{
+			background: $dust;
+			color: $white;
 		}
 	}
 	.brief_footer{

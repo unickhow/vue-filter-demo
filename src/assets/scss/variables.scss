@@ -11,6 +11,10 @@ $dust: #f1c550;
 $orange: #ff7100;
 $red: #df0054;
 
+$md: 991px;
+$sm: 768px;
+$xs: 478px;
+
 @mixin flex($alignItem: center, $justifyContent: center) {
   display: flex;
   align-items: $alignItem;

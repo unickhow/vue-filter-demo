@@ -1,16 +1,19 @@
 aside.filter_pannel{
-	width: 300px;
+	width: 230px;
 	height: fit-content;
 	position: sticky;
 	top: 70px;
 	left: 0;
-	margin-right: 10px;
+	margin: 0.75rem;
 	background: $purewhite;
 	padding: 10px;
 	h6{
 		font-size: 1rem;
 		color: $darkgreen;
-		padding: 10px 0;
+		padding-bottom: 8px;
+	}
+	ul{
+		margin-bottom: 12px;
 	}
 	li{
 		user-select: none;
@@ -19,14 +22,27 @@ aside.filter_pannel{
 		display: flex;
 		align-items: center;
 		i{
-			color: $green;
-			margin-right: 10px;
-			transition: .65s;
-			border-radius: 50%;
-			font-size: 1rem;
-			&.fa-check-circle{
-				background: $green;
-				color: $white;
+			&.far{
+				color: $green;
+				margin-right: 10px;
+				transition: .65s;
+				border-radius: 50%;
+				font-size: 1rem;
+				&.fa-check-circle{
+					background: $green;
+					color: $white;
+				}
+			}
+			&.counts{
+				display: inline-block;
+				background: $dust;
+				font-style: normal;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				font-size: 0.7rem;
+				text-align: center;
+				border-radius: 50%;
 			}
 		}
 		label{
@@ -34,6 +50,16 @@ aside.filter_pannel{
 			line-height: 0;
 			input{
 				display: none;
+			}
+		}
+		input[type=number]{
+			margin-left: 5px;
+			width: 25px;
+			outline: none;
+			text-align: center;
+			&::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
+				-webkit-appearance: none; 
+  			margin: 0;
 			}
 		}
 	}
