@@ -131,6 +131,7 @@ export const store = new Vuex.Store({
 		},
 		updateKeyword(state, input) {
 			state.searchKeyword = input
+			state.currentPage = 1
 		},
 		storeApiData(state, apiData) {
 			state.bikeData = apiData.sort((a, b) => a.sarea - b.sarea)
