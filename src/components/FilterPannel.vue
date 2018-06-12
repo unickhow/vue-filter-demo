@@ -5,9 +5,11 @@
 				small Area
 			ul
 				li(v-for='area in areaList')
-					i.far(:class='area.isSelected ? "fa-check-circle" : "fa-circle"')
-					label {{area.name_zh}} 
-						small {{area.name_en}}
+					label(@click='toggleAreaTag(area)') 
+						i.far(:class='area.isSelected ? "fa-check-circle" : "fa-circle"')
+						span {{area.name_zh}} 
+						small {{area.name_en}} 
+						i.counts {{area.contentLength}}
 						input(
 							type='checkbox',
 							v-model='area.isSelected')
@@ -16,21 +18,30 @@
 				small Status
 			ul
 				li
-					i.far(:class='rentable ? "fa-check-circle" : "fa-circle"')
-					label 可租借 
+					label 
+						i.far(:class='rentable ? "fa-check-circle" : "fa-circle"')
+						span 可租借 
 						small Rentable
 						input(
 							type='checkbox',
 							v-model='rentable'
 							)
+					input(
+						type='number',
+						v-model='rentableAmount')
 				li
-					i.far(:class='returnable ? "fa-check-circle" : "fa-circle"')
-					label 可歸還 
+					label 
+						i.far(:class='returnable ? "fa-check-circle" : "fa-circle"')
+						span 可歸還 
 						small Returnable
 						input(
 							type='checkbox',
 							v-model='returnable'
 							)
+					input(
+						type='number',
+						v-model='returnableAmount')
+		p 共 {{$store.getters.filteredData.length}} 個據點
 </template>
 <script>
 	export default {
@@ -38,7 +49,15 @@
 		data() {
 			return {
 				rentable: false,
-				returnable: false
+				returnable: false,
+				rentableAmount: 1,
+				returnableAmount: 1,
+				filterAreaTags: []
+			}
+		},
+		methods: {
+			toggleAreaTag(area) {
+				this.$store.commit('toggleAreaTag', area)
 			}
 		},
 		computed: {

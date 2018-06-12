@@ -5,7 +5,7 @@
       .bikes_container
         .columns.is-multiline
           bike-brief(
-            v-for='bike in bikeData', 
+            v-for='bike in filteredData', 
             :key='bike.sno',
             :bike='bike')
 </template>
@@ -24,8 +24,8 @@ export default {
     }
   },
   computed: {
-    bikeData() {
-      return this.$store.state.bikeData 
+    filteredData() {
+      return this.$store.getters.filteredData 
     }
   },
 }
