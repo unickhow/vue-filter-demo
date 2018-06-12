@@ -42,7 +42,7 @@
 						input(
 							type='number',
 							v-model='returnableAmount')
-			p 共 {{$store.getters.filteredData.length}} 個據點
+			p 共 {{$store.state.totalLength}} 個據點
 		.tags_container
 			.all_tags
 				ul

@@ -84,6 +84,7 @@ export const store = new Vuex.Store({
 				contentLength: 0
 			}
 		],
+		totalLength: 0,
 		pageStart: 1,
 		currentPage: 1,
 		pageSize: 10,
@@ -113,6 +114,7 @@ export const store = new Vuex.Store({
 			// checkbox filters
 			finalData = store.getters.selectedTags.length === 0 ? finalData : finalData.filter(bike => store.getters.selectedTags.some(tag => tag.name_zh === bike.sarea))
 			state.totalPage = Math.ceil(finalData.length / state.pageSize)
+			state.totalLength = finalData.length
 
 			// pagination
 			let start = (state.currentPage - 1) * state.pageSize
