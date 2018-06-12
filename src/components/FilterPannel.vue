@@ -4,7 +4,10 @@
 			label 地區 
 				small Area
 			ul
-				li
+				li(v-for='area in areaList')
+					i.far.fa-circle
+					label {{area.name_zh}} {{area.name_en}}
+						input(type='checkbox')
 		.status_filter
 			label 使用狀態 
 				small Status
@@ -20,6 +23,11 @@
 </template>
 <script>
 	export default {
-		name: 'filter-pannel'
+		name: 'filter-pannel',
+		computed: {
+			areaList() {
+				return this.$store.state.areaList 
+			}
+		},
 	}
 </script>

@@ -14,7 +14,18 @@ export const store = new Vuex.Store({
 		storeApiData(state, payload) {
 			state.bikeData = payload
 			state.isLoading = false
-			state.areaList = [...new Set(payload.map(bike => bike.sarea))]
+			payload = payload.filter((bike, index, self) =>
+				index === self.findIndex((t) => (
+					t.sarea === bike.sarea && t.sareaen === bike.sareaen
+				))
+			)
+			let areaArray = payload.map(bike => {
+				return {
+					name_zh: bike.sarea,
+					name_en: bike.sareaen
+				}
+			})
+			state.areaList = [...new Set(areaArray)]
 		}
 	},
 	actions: {
