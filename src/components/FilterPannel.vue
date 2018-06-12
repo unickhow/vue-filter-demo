@@ -1,47 +1,56 @@
 <template lang="pug">
 	aside.filter_pannel
-		.area_filter
-			h6 地區 
-				small Area
-			ul
-				li(v-for='area in areaList')
-					label(@click='toggleAreaTag(area)') 
-						i.far(:class='area.isSelected ? "fa-check-circle" : "fa-circle"')
-						span {{area.name_zh}} 
-						small {{area.name_en}} 
-						i.counts {{area.contentLength}}
+		.filter_container
+			.area_filter
+				h6 地區 
+					small Area
+				ul
+					li(v-for='area in areaList')
+						label(@click='toggleAreaTag(area)') 
+							i.far(:class='area.isSelected ? "fa-check-circle" : "fa-circle"')
+							span {{area.name_zh}} 
+							small {{area.name_en}} 
+							i.counts {{area.contentLength}}
+							input(
+								type='checkbox',
+								v-model='area.isSelected')
+			.status_filter
+				h6 使用狀態 
+					small Status
+				ul
+					li
+						label 
+							i.far(:class='rentable ? "fa-check-circle" : "fa-circle"')
+							span 可租借 
+							small Rentable
+							input(
+								type='checkbox',
+								v-model='rentable'
+								)
 						input(
-							type='checkbox',
-							v-model='area.isSelected')
-		.status_filter
-			h6 使用狀態 
-				small Status
-			ul
-				li
-					label 
-						i.far(:class='rentable ? "fa-check-circle" : "fa-circle"')
-						span 可租借 
-						small Rentable
+							type='number',
+							v-model='rentableAmount')
+					li
+						label 
+							i.far(:class='returnable ? "fa-check-circle" : "fa-circle"')
+							span 可歸還 
+							small Returnable
+							input(
+								type='checkbox',
+								v-model='returnable'
+								)
 						input(
-							type='checkbox',
-							v-model='rentable'
-							)
-					input(
-						type='number',
-						v-model='rentableAmount')
-				li
-					label 
-						i.far(:class='returnable ? "fa-check-circle" : "fa-circle"')
-						span 可歸還 
-						small Returnable
-						input(
-							type='checkbox',
-							v-model='returnable'
-							)
-					input(
-						type='number',
-						v-model='returnableAmount')
-		p 共 {{$store.getters.filteredData.length}} 個據點
+							type='number',
+							v-model='returnableAmount')
+			p 共 {{$store.getters.filteredData.length}} 個據點
+		.tags_container
+			.all_tags
+				ul
+					li(
+						v-for='tag in tagsList',
+						@click='cancelTag(tag)')
+						span {{tag.name_zh}} {{tag.name_en}}
+						a ×
 </template>
 <script>
 	export default {
@@ -58,11 +67,17 @@
 		methods: {
 			toggleAreaTag(area) {
 				this.$store.commit('toggleAreaTag', area)
+			},
+			cancelTag(tag) {
+				this.$store.commit('cancelTag', tag)
 			}
 		},
 		computed: {
 			areaList() {
 				return this.$store.state.areaList 
+			},
+			tagsList() {
+				return this.$store.state.areaList.filter(area => area.isSelected)
 			}
 		},
 	}

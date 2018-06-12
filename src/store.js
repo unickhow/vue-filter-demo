@@ -11,73 +11,73 @@ export const store = new Vuex.Store({
 		isLoading: true,
 		areaList: [
 			{
-				isSelected:false,
+				isSelected: true,
 				name_en:"Xinyi Dist.",
 				name_zh:"信義區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: true,
 				name_en:"Daan Dist.",
 				name_zh:"大安區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Zhongshan Dist.",
 				name_zh:"中山區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Songshan Dist.",
 				name_zh:"松山區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Nangang Dist.",
 				name_zh:"南港區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Zhongzheng Dist.",
 				name_zh:"中正區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Wanhua Dist.",
 				name_zh:"萬華區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Wenshan Dist.",
 				name_zh:"文山區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Datong Dist.",
 				name_zh:"大同區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Shilin Dist.",
 				name_zh:"士林區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Neihu Dist.",
 				name_zh:"內湖區",
 				contentLength: 0
 			},
 			{
-				isSelected:false,
+				isSelected: false,
 				name_en:"Beitou Dist.",
 				name_zh:"北投區",
 				contentLength: 0
@@ -137,6 +137,9 @@ export const store = new Vuex.Store({
 		},
 		toggleAreaTag(state, area) {
 			area.isSelected = !area.isSelected
+		},
+		cancelTag(state, tag) {
+			tag.isSelected = false
 		}
 	},
 	actions: {
