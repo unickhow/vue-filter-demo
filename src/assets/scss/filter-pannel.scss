@@ -7,7 +7,7 @@ aside.filter_pannel{
 	margin: 0.75rem;
 	@media (max-width: $md) {
 		position: fixed;
-		z-index: 10;
+		z-index: 6;
 		top: 0;
 		left: 0;
 		background: $purewhite;
@@ -16,6 +16,11 @@ aside.filter_pannel{
 		width: 300px;
 		box-shadow: 0 0 10px rgba($darkgrey, .7);
 		overflow: scroll;
+		transform: translateX(-300px);
+		transition: .3s;
+		&.isOpen{
+			transform: translateX(0);
+		}
 	}
 	.filter_container{
 		background: $purewhite;

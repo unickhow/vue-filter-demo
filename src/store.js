@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
 	state: {
+		isMobileFilterOpen: false,
 		bikeData: [],
 		searchKeyword: '',
 		isLoading: true,
@@ -112,6 +113,9 @@ export const store = new Vuex.Store({
 		}
 	},
 	mutations: {
+		mobileToggleFilter(state) {
+			state.isMobileFilterOpen = !state.isMobileFilterOpen
+		},
 		updateKeyword(state, input) {
 			state.searchKeyword = input
 		},

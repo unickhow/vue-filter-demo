@@ -1,5 +1,5 @@
 <template lang="pug">
-	aside.filter_pannel
+	aside.filter_pannel(:class='{isOpen: $store.state.isMobileFilterOpen}')
 		.filter_container
 			.area_filter
 				h6 地區 

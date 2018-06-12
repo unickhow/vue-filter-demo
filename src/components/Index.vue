@@ -1,6 +1,10 @@
 <template lang="pug">
   main.index
     .container
+      #mobile_menu_btn(
+        @click='mobileToggleFilter',
+        :class='{isOpen: $store.state.isMobileFilterOpen}')
+        i.fas(:class='$store.state.isMobileFilterOpen ? "fa-times" : "fa-filter"')
       filter-pannel
       .bikes_container
         .columns.is-multiline
@@ -21,6 +25,11 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  methods: {
+    mobileToggleFilter() {
+      this.$store.commit('mobileToggleFilter')
     }
   },
   computed: {
