@@ -1,6 +1,7 @@
 <template lang="pug">
   main.index
     .container
+      map-pannel(name='example')
       #mobile_menu_btn(
         @click='mobileToggleFilter',
         :class='{isOpen: $store.state.isMobileFilterOpen}')
@@ -20,11 +21,12 @@
 import FilterPannel from './FilterPannel'
 import BikeBrief from './BikeBrief'
 import Pagination from './Pagination'
+import MapPannel from './MapPannel'
 
 export default {
   name: 'index',
   components: {
-    FilterPannel, BikeBrief, Pagination
+    FilterPannel, BikeBrief, Pagination, MapPannel
   },
   data () {
     return {

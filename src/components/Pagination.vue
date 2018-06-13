@@ -18,6 +18,7 @@
 				a
 					i.fas.fa-ellipsis-h
 			li(
+				v-if='totalPage !== 1',
 				@click='changePage(totalPage)',
 				:class='{active: totalPage === currentPage}')
 				a {{totalPage}}

@@ -6,7 +6,7 @@
 					small Area
 				ul
 					li(v-for='area in areaList')
-						label(@click='toggleAreaTag(area)') 
+						label(@click.stop='toggleAreaTag(area)') 
 							i.far(:class='area.isSelected ? "fa-check-circle" : "fa-circle"')
 							span {{area.name_zh}} 
 							small {{area.name_en}} 

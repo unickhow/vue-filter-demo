@@ -1,6 +1,8 @@
 <template lang="pug">
 	.column.is-6-desktop.is-6-tablet
-		article.bike_brief(:class='{disabled: bike.act === "0"}')
+		article.bike_brief(
+			:class='{disabled: bike.act === "0"}', 
+			@click='showMap(bike)')
 			.text_group
 				h2 {{bike.sna}} 
 				small {{bike.snaen}}
@@ -25,6 +27,11 @@
 		props: ['bike'],
 		data() {
 			return {
+			}
+		},
+		methods: {
+			showMap(bike) {
+				this.$store.commit('showMap', bike)
 			}
 		},
 	}

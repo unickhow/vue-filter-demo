@@ -1,0 +1,67 @@
+#map{
+	position: fixed;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%) translateY(110%);
+	border: 1px solid $darkgrey;
+	background: $white;
+	z-index: 5;
+	transition: .5s;
+	&.open{
+		transform: translateX(-50%) translateY(0)
+	}
+	#close_map{
+		position: absolute;
+		right: 10px;
+		top: 0;
+		font-size: 2rem;
+		cursor: pointer;
+		width: 30px;
+		text-align: center;
+	}
+	.map_header{
+		padding: 10px;
+		border-bottom: 1px dashed $darkgrey;
+		h4 + small{
+			display: block;
+			margin-bottom: 5px;
+		}
+		.area_amounts{
+			@include flex(center, space-between);
+			label{
+				display: inline-block;
+				font-size: 0.7rem;
+				padding: 5px 10px;
+				background: $blue;
+				color: $white;
+				border-radius: 5px;
+			}
+			.amounts{
+				span{
+					font-size: 1.5rem;
+					font-weight: bold;
+					&.rentable{
+						color: $darkgreen;
+						margin-right: 20px;
+					}
+					&.returnable{
+						color: $orange;
+					}
+				}
+			}
+		}
+	}
+	.google-map {
+		width: 480px;
+		height: 360px;
+		margin: 0 auto;
+		@media (max-width: $sm) {
+			width: 400px;
+			height: 300px;
+		}
+		@media (max-width: $xs) {
+			width: 300px;
+			height: 250px;
+		}
+	}
+}

@@ -93,6 +93,8 @@ export const store = new Vuex.Store({
 		returnable: false,
 		rentableAmount: 1,
 		returnableAmount: 1,
+		selectedStop: {},
+		isMapOpen: false
 	},
 	getters: {
 		selectedTags: state => {
@@ -139,6 +141,7 @@ export const store = new Vuex.Store({
 		changePage(state, to) {
 			state.currentPage = to
 			store.commit('scrollToTop')
+			state.isMapOpen = false
 		},
 		mobileToggleFilter(state) {
 			state.isMobileFilterOpen = !state.isMobileFilterOpen
@@ -146,6 +149,7 @@ export const store = new Vuex.Store({
 		updateKeyword(state, input) {
 			state.searchKeyword = input
 			state.currentPage = 1
+			state.isMapOpen = false
 		},
 		storeApiData(state, apiData) {
 			state.bikeData = apiData.sort((a, b) => a.sarea - b.sarea)
@@ -155,11 +159,13 @@ export const store = new Vuex.Store({
 			area.isSelected = !area.isSelected
 			state.currentPage = 1
 			store.commit('scrollToTop')
+			state.isMapOpen = false
 		},
 		cancelTag(state, tag) {
 			tag.isSelected = false
 			state.currentPage = 1
 			store.commit('scrollToTop')
+			state.isMapOpen = false
 		},
 		scrollToTop() {
 			const scrollHeight = window.scrollY
@@ -179,16 +185,27 @@ export const store = new Vuex.Store({
 		clearAllTags(state) {
 			state.areaList.forEach(area => area.isSelected = false)
 			state.currentPage = 1
+			state.isMapOpen = false
 		},
 		clearSearchInput(state) {
 			state.searchKeyword = ''
 			state.currentPage = 1
+			state.isMapOpen = false
 		},
 		toggleRantable(state) {
 			state.rentable = !state.rentable
+			state.isMapOpen = false
 		},
 		toggleReturnable(state) {
 			state.returnable = !state.returnable
+			state.isMapOpen = false
+		},
+		showMap(state, stop) {
+			state.selectedStop = stop
+			state.isMapOpen = true
+		},
+		closeMap(state) {
+			state.isMapOpen = false
 		}
 	},
 	actions: {
