@@ -105,7 +105,8 @@ export const store = new Vuex.Store({
 			// search keyword filter
 			finalData = state.searchKeyword === '' ? state.bikeData : state.bikeData.filter(bike => {
 				let tempStr = JSON.stringify(bike)
-				if (tempStr.match(new RegExp(state.searchKeyword, 'i')) !== null) return true
+				let regexWords = state.searchKeyword.split(' ').join('|')
+				if (tempStr.match(new RegExp(regexWords, 'i')) !== null) return true
 			})
 
 			// compute content of each area
