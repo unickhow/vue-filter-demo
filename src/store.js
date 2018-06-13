@@ -166,6 +166,11 @@ export const store = new Vuex.Store({
 		},
 		clearAllTags(state) {
 			state.areaList.forEach(area => area.isSelected = false)
+			state.currentPage = 1
+		},
+		clearSearchInput(state) {
+			state.searchKeyword = ''
+			state.currentPage = 1
 		}
 	},
 	actions: {

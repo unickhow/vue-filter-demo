@@ -10,7 +10,10 @@
 					@compositionstart='composition($event)',
 					@compositionupdate='composition($event)',
 					@compositionend='composition($event)')
-				i.fas.fa-search
+				i.fas(
+					:class='$store.state.searchKeyword === "" ? "fa-search" : "fa-times"',
+					@click='clearSearchInput'
+					)
 </template>
 
 <script>
@@ -28,6 +31,9 @@
 		methods: {
 			composition(e) {
 				this.$store.commit('updateKeyword', e.data)
+			},
+			clearSearchInput() {
+				this.$store.commit('clearSearchInput')
 			}
 		},
 		mounted() {

@@ -32,6 +32,9 @@ nav#navbar{
 				right: 8px;
 				top: 5px;
 				color: $white;
+				&.fa-times{
+					cursor: pointer;
+				}
 			}
 		}
 	}
