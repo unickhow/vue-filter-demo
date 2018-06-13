@@ -63,7 +63,6 @@
 		name: 'filter-pannel',
 		methods: {
 			toggleAreaTag(area) {
-				console.log('click')
 				this.$store.commit('toggleAreaTag', area)
 			},
 			cancelTag(tag) {
