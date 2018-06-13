@@ -12,6 +12,7 @@
 							small {{area.name_en}} 
 							i.counts {{area.contentLength}}
 							input(
+								@click.stop='',
 								type='checkbox',
 								v-model='area.isSelected')
 			.status_filter
@@ -62,6 +63,7 @@
 		name: 'filter-pannel',
 		methods: {
 			toggleAreaTag(area) {
+				console.log('click')
 				this.$store.commit('toggleAreaTag', area)
 			},
 			cancelTag(tag) {
