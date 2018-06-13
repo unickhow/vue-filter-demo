@@ -88,9 +88,6 @@ aside.filter_pannel{
 		}
 		.status_filter{
 			margin-bottom: 20px;
-			li{
-				padding: 4px 0;
-			}
 		}
 		.filter_footer{
 			@include flex(center, space-between);

@@ -88,7 +88,11 @@ export const store = new Vuex.Store({
 		pageStart: 1,
 		currentPage: 1,
 		pageSize: 10,
-		totalPage: 0
+		totalPage: 0,
+		rentable: false,
+		returnable: false,
+		rentableAmount: 1,
+		returnableAmount: 1,
 	},
 	getters: {
 		selectedTags: state => {
@@ -111,8 +115,16 @@ export const store = new Vuex.Store({
 				area.contentLength = count
 			})
 
-			// checkbox filters
+			// area filters
 			finalData = store.getters.selectedTags.length === 0 ? finalData : finalData.filter(bike => store.getters.selectedTags.some(tag => tag.name_zh === bike.sarea))
+			
+			// status filters
+			// // rentable
+			finalData = state.rentable ? finalData.filter(bike => bike.sbi > 0) : finalData
+			// // returnable
+			finalData = state.returnable ? finalData.filter(bike => bike.bemp > 0) : finalData
+			
+			// pagination options
 			state.totalPage = Math.ceil(finalData.length / state.pageSize)
 			state.totalLength = finalData.length
 
@@ -171,6 +183,12 @@ export const store = new Vuex.Store({
 		clearSearchInput(state) {
 			state.searchKeyword = ''
 			state.currentPage = 1
+		},
+		toggleRantable(state) {
+			state.rentable = !state.rentable
+		},
+		toggleReturnable(state) {
+			state.returnable = !state.returnable
 		}
 	},
 	actions: {

@@ -27,9 +27,9 @@
 								type='checkbox',
 								v-model='rentable'
 								)
-						input(
-							type='number',
-							v-model='rentableAmount')
+						// input(
+						// 	type='number',
+						// 	v-model='rentableAmount')
 					li
 						label 
 							i.far(:class='returnable ? "fa-check-circle" : "fa-circle"')
@@ -39,9 +39,9 @@
 								type='checkbox',
 								v-model='returnable'
 								)
-						input(
-							type='number',
-							v-model='returnableAmount')
+						// input(
+						// 	type='number',
+						// 	v-model='returnableAmount')
 			.filter_footer
 				p 共 {{$store.state.totalLength}} 個站點
 				a(
@@ -60,15 +60,6 @@
 <script>
 	export default {
 		name: 'filter-pannel',
-		data() {
-			return {
-				rentable: false,
-				returnable: false,
-				rentableAmount: 1,
-				returnableAmount: 1,
-				filterAreaTags: []
-			}
-		},
 		methods: {
 			toggleAreaTag(area) {
 				this.$store.commit('toggleAreaTag', area)
@@ -86,6 +77,22 @@
 			},
 			tagsList() {
 				return this.$store.state.areaList.filter(area => area.isSelected)
+			},
+			rentable: {
+				get() {
+					return this.$store.state.rentable
+				},
+				set() {
+					this.$store.commit('toggleRantable')
+				}
+			},
+			returnable: {
+				get() {
+					return this.$store.state.returnable
+				},
+				set() {
+					this.$store.commit('toggleReturnable')
+				}
 			}
 		},
 	}
