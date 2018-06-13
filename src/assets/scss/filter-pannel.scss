@@ -44,6 +44,7 @@ aside.filter_pannel{
 				cursor: pointer;
 				line-height: 0;
 				position: relative;
+				user-select: none;
 				i{
 					&.far{
 						color: $green;
@@ -86,8 +87,24 @@ aside.filter_pannel{
 			}
 		}
 		.status_filter{
+			margin-bottom: 20px;
 			li{
 				padding: 4px 0;
+			}
+		}
+		.filter_footer{
+			@include flex(center, space-between);
+			a{
+				padding: 0 8px;
+				border-radius: 5px;
+				border: 1px solid $blue;
+				color: $blue;
+				transition: .3s;
+				&:hover{
+					border: 1px solid transparent;
+					background: rgba($blue, .7);
+					color: $white;
+				}
 			}
 		}
 	}

@@ -42,7 +42,12 @@
 						input(
 							type='number',
 							v-model='returnableAmount')
-			p 共 {{$store.state.totalLength}} 個據點
+			.filter_footer
+				p 共 {{$store.state.totalLength}} 個站點
+				a(
+					v-if='tagsList.length !== 0',
+					@click='clearAllTags'
+				) × clear all
 		.tags_container
 			.all_tags
 				ul
@@ -70,6 +75,9 @@
 			},
 			cancelTag(tag) {
 				this.$store.commit('cancelTag', tag)
+			},
+			clearAllTags() {
+				this.$store.commit('clearAllTags')
 			}
 		},
 		computed: {

@@ -163,6 +163,9 @@ export const store = new Vuex.Store({
 					} 
 					else clearInterval(scrollInterval)
 			}, 15 )
+		},
+		clearAllTags(state) {
+			state.areaList.forEach(area => area.isSelected = false)
 		}
 	},
 	actions: {
