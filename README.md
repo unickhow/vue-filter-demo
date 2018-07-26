@@ -1,5 +1,6 @@
 # vue-filter-demo
 
+[DEMO](http://vfilter.s3-website-ap-northeast-1.amazonaws.com/)
 > A vue filter project for hexschool timehouse
 
 ## Build Setup
