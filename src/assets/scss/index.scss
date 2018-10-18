@@ -1,6 +1,8 @@
 main.index{
-	margin-top: 60px;
 	padding-top: .75rem;
+	@media (max-width: $md) {
+		padding-top: 0rem;
+	}
 	.container{
 		#mobile_menu_btn{
 			display: none;

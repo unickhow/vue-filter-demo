@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import FilterPannel from './FilterPannel'
-import BikeBrief from './BikeBrief'
-import Pagination from './Pagination'
-import MapPannel from './MapPannel'
+import FilterPannel from '@/components/FilterPannel'
+import BikeBrief from '@/components/BikeBrief'
+import Pagination from '@/components/Pagination'
+import MapPannel from '@/components/MapPannel'
 
 export default {
-  name: 'index',
+  name: 'Index',
   components: {
     FilterPannel, BikeBrief, Pagination, MapPannel
   },
@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     filteredData() {
-      return this.$store.getters.filteredData 
+      return this.$store.getters.filteredData
     }
   },
 }

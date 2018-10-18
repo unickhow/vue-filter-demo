@@ -1,0 +1,16 @@
+main.geo-map{
+  .map-container{
+    position: relative;
+    height: calc(100vh - 60px);
+    padding: 10px;
+    #geo-map{
+      border: 1px solid #333;
+      width: 100%;
+      height: 100%;
+    }
+    .stop-marker{
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}

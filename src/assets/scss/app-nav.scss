@@ -9,12 +9,18 @@ nav#navbar{
 	padding: 0 10px;
 	.container{
 		height: 100%;
-		@include flex(center, space-between);
+		@include flex(center, flex-start);
 		h1{
 			font-size: 2rem;
 			font-weight: bold;
 			color: $white;
 			letter-spacing: .1rem;
+			margin-right: auto;
+		}
+		.mode-switch{
+			cursor: pointer;
+			margin-right: 10px;
+			color: $white;
 		}
 		.search_input{
 			position: relative;

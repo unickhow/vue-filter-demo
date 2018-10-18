@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
 	state: {
+		viewMode: 'list',
 		isMobileFilterOpen: false,
 		bikeData: [],
 		searchKeyword: '',
@@ -207,6 +208,9 @@ export const store = new Vuex.Store({
 		},
 		closeMap(state) {
 			state.isMapOpen = false
+		},
+		switchMode(state, mode) {
+			state.viewMode = mode
 		}
 	},
 	actions: {
