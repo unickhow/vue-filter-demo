@@ -11,7 +11,7 @@
       getLocation() {
         let latlng = { lat: 25.046891, lng: 121.516602 }; // 給一個初始位置
         let map = new google.maps.Map(document.getElementById('geo-map'), {
-            zoom: 14, //放大的倍率
+            zoom: 16, //放大的倍率
             center: latlng //初始化的地圖中心位置
         });
 
